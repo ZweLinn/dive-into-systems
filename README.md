@@ -5,10 +5,3 @@ Code and notes from working through [*Dive Into Systems*](https://diveintosystem
 ## Structure
 
 - `Getting_started/` — introductory C programs (compiling, running, debugging)
-
-## Run
-
-```sh
-gcc -o hello Getting_started/hello.c -lm
-./hello
-```
