@@ -6,4 +6,4 @@ int main(void) {
   char greeting[] = "hello";
   printf("this is a C string\n %s\n" , greeting);
   return 0;
-};
+}

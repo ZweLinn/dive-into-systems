@@ -22,4 +22,4 @@ int main(void) {
 
   printf("%d\n" , letter);
   return 0;
-};
+}

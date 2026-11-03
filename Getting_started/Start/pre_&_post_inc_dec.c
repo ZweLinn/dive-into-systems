@@ -13,4 +13,4 @@ int main(void) {
   y = x++ + 2;
   printf("x is %d\n", y); // y is assigned 8: evaluate x + 2 first (8), then increment x
   return 0;
-};
+}
