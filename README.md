@@ -4,4 +4,5 @@ Code and notes from working through [*Dive Into Systems*](https://diveintosystem
 
 ## Structure
 
-- `Getting_started/` — introductory C programs (compiling, running, debugging)
+- `Getting_started/Start/` — first C programs (compiling, variables, types, numeric basics)
+- `Getting_started/I/O/` — input/output with `printf` and `scanf`
