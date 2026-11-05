@@ -8,6 +8,6 @@ Code and notes from working through [*Dive Into Systems*](https://diveintosystem
 
 ## Structure
 
-- `docs/` — chapter documentation
+- `docs/` — chapter documentation in Burmese
 - `Getting_started/Start/` — first C programs (compiling, variables, types, numeric basics)
 - `Getting_started/I/O/` — input/output with `printf` and `scanf`
