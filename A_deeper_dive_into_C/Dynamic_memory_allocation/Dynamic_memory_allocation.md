@@ -14,7 +14,6 @@ Dynamic memory allocation grants flexibility to programs that:
 
 Dynamically allocated memory occupies the heap memory region of a program’s address space.
 
-
 ## Heap Memory
 
 Everything the program needs to run is in its memory space, and different types of entities reside in different parts of a program’s memory space. For example, the code region contains the program’s instructions, global variables reside in the data region, local variables and parameters occupy the stack, and dynamically allocated memory comes from the heap.
@@ -49,10 +48,54 @@ Everything the program needs to run is in its memory space, and different types 
       └──────────────────────────────────────┘
 ```
 
-*It’s important to remember that heap memory is anonymous memory, where "anonymous" means that addresses in the heap are not bound to variable names.*
+_It’s important to remember that heap memory is anonymous memory, where "anonymous" means that addresses in the heap are not bound to variable names._
 
 ## malloc and free
 
 malloc and free are functions in the standard C library (stdlib) that a program can call to allocate and deallocate memory in the heap. Heap memory must be explicitly allocated (malloc’ed) and deallocated (freed) by a C program
 
 - [malloc and free](malloc_&_free.c)
+
+## Dynamically Allocated Arrays and Strings
+
+C programmers often dynamically allocate memory to store arrays.
+To dynamically allocate space for an array of elements, pass malloc the total number of bytes in the desired array.
+
+```
+  int *arr;
+  char *c_arr;
+  // allocate an array of 20 ints on the heap:
+  arr = malloc(sizeof(int) * 20);
+
+  // allocate an array of 10 chars on the heap:
+  c_arr = malloc(sizeof(char) * 10);
+```
+
+```text
+ main:
+┌───────────────────────────┐        ┌─────────────────────────────────────────────┐
+│                           │        │      0   1   2        ...       19          │
+│       ┌────────────┐      │        │    ┌───┬───┬───┬───────────────┬───┐        │
+│   arr:│addr in heap├──────┼────────┼───►│   │   │   │               │   │        │
+│       └────────────┘      │        │    └───┴───┴───┴───────────────┴───┘        │
+│                           │        │                                             │
+│                           │        │      0   1   2   ...   9                    │
+│       ┌────────────┐      │        │    ┌───┬───┬───┬─────┬───┐                  │
+│ c_arr:│addr in heap├──────┼────────┼───►│   │   │   │     │   │                  │
+│       └────────────┘      │        │    └───┴───┴───┴─────┴───┘                  │
+│                           │        │                                             │
+└───────────────────────────┘        └─────────────────────────────────────────────┘
+           Stack                                          Heap
+
+    A 20-element integer array and 10-element character array allocated on the heap.
+```
+
+we can use the same syntax to access elements in dynamically allocated arrays as we use to access elements in statically declared arrays.
+
+-[C programmers often dynamically allocate memory to store arrays.](Array_&_String.c)
+
+### Heap buffer overflow
+
+A heap buffer overflow happens when a program writes more data into a heap-allocated block of memory (from malloc, calloc, realloc) than the block was sized to hold. The extra bytes spill into adjacent memory, which is undefined behavior in C.
+
+-[Heap buffer overflow](Heap_buffer_overflow.c)
