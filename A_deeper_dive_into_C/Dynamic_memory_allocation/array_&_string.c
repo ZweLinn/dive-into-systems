@@ -12,14 +12,16 @@ int main(void) {
     printf("Error: malloc failed\n");
     exit(1);
   }
-  
-  // Heap buffer overflow: malloc(): corrupted top size
-  for (i = 0; i < 125; i++) {
+
+  for (i = 0; i < 20; i++) {
+    s_array[i] = i;
     d_array[i] = i;
   }
-  printf("%d \n", d_array[100]); // crashes here
-  // malloc(): corrupted top size
-  // Aborted (core dumped)
 
+  printf("%d %d \n", s_array[3], d_array[3]); // output 3 3
+
+  free(d_array);
+  d_array=NULL;
+  
   return 0;
 }

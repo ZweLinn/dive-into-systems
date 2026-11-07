@@ -13,13 +13,6 @@ int main(void) {
     exit(1);
   }
 
-  for (i = 0; i < 20; i++) {
-    s_array[i] = i;
-    d_array[i] = i;
-  }
-
-  printf("%d %d \n", s_array[3], d_array[3]); // output 3 3
-
   // Heap buffer overflow: malloc(): corrupted top size
   for (i = 0; i < 125; i++) {
     d_array[i] = i;
