@@ -128,3 +128,24 @@ Address   Memory     Element
 
 The layout of a two-dimensional array in row-major order.
 ```
+
+
+## Dynamically Allocated 2D Arrays
+
+-[Dynamically Allocated 2D Arrays](dynamically_allocated_2d_arrays.c)
+
+Dynamically allocated 2D arrays can be allocated in two ways. For an NxM 2D array: (N = row , M = column)
+
+Method 1: Memory-Efficient Allocation
+
+In this method, a single call to malloc allocates the total number of bytes needed to store the NxM array of values. it is benefit of being more memory efficient
+
+The compiler cannot distinguish this from a 1D array. It does not know what row or column it is. So it cannot be written as [i][j]. The programmer has to calculate the offset himself.
+
+```
+#define N 3
+#define M 4
+
+int *two_d_array;
+two_d_array = malloc(sizeof(int) * N * M);  // 3*4 = 12
+```
