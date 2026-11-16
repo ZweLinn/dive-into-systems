@@ -6,7 +6,7 @@ int main(void) {
     double *d_array;
     int i;
     p_array = malloc(sizeof(int) * 50);
-    d_array = malloc(sizeof(double) *06);
+    d_array = malloc(sizeof(double) *60);
 
     if( (p_array == NULL) || (d_array ==NULL)){
         printf("ERROR : malloc filed \n");
