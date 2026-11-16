@@ -259,4 +259,4 @@ int main(void) {
 
     init2D_Method2(two_d_array, N, M);
     ...
-```s
+```
